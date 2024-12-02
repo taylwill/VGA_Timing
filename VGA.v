@@ -6,7 +6,6 @@
 // other files
 module VGA(
     input clk,
-    input left, right, haz,
     input clear,
     output reg [7:0] Red, Green, Blue,  
     output hsync, vsync,
@@ -21,14 +20,11 @@ module VGA(
 	 parameter Off = 8'b00000000;
 
     // Instantiate bitgen_1 module
-    bitgen_Mustang_Lights bits(
+    bitgen_Pipe bits(
 		  .clk(clk),
         .clear(clear),
         .h_counter(hcount),  
         .v_counter(vcount),
-		  .right(right),
-		  .left(left),
-		  .haz(haz),
         .rgb(rgbout)
     ); 
 	 
